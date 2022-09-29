@@ -19,7 +19,7 @@ struct Product {
     
     var name : String
     
-    var pieces : Int
+    var pieces : String
     
     var check: Bool
     
