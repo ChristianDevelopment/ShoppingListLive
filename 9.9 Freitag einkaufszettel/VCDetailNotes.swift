@@ -13,8 +13,7 @@ class CellProduct : UITableViewCell {
     @IBOutlet weak var amount: UILabel!
     @IBOutlet weak var productLabel: UILabel!
     @IBAction func buttonEdit(_ sender: UIButton) {
-        
-        
+    
     }
 }
 
@@ -118,5 +117,8 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
         NotificationCenter.default.post(name:NSNotification.Name.init("de.shoppingList.update"),object: (detailList,listIndex))
         
         tableView.reloadData()
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
     }
 }
