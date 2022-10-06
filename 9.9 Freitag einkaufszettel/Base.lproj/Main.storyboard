@@ -97,7 +97,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="W44-xh-lBQ" id="Z04-ru-oQh"/>
-                        <segue destination="FDE-xF-MYd" kind="show" identifier="NaviVCDetailNotes" id="JOl-cn-noq"/>
+                        <segue destination="FDE-xF-MYd" kind="show" identifier="NaviVCDetailNotes" animates="NO" id="JOl-cn-noq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

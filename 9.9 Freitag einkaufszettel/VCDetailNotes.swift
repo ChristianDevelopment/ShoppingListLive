@@ -28,11 +28,11 @@ class VCDetailNotes: UIViewController {
     @IBAction func addProduct(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(
-            title: "Item", message: "Bitte Trage dein Item ein !", preferredStyle: .alert
+            title: "Text", message: "Bitte Trage deinen Text ein !", preferredStyle: .alert
         )
         
         alert.addTextField { field in
-            field.placeholder = "Item"
+            field.placeholder = "Text"
             field.returnKeyType = .continue
         }
         alert.addTextField { field in
@@ -120,5 +120,11 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete{
+            detailList.list.remove(at:indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
     }
 }
