@@ -7,12 +7,14 @@
 
 import UIKit
 
+
 class VCOverViewNotes: UIViewController {
     
     var data : [ ShoppingList ] = [ ]
     
     var selectetList : ShoppingList?
     var listIndex2 : Int!
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -40,11 +42,20 @@ class VCOverViewNotes: UIViewController {
                     return
                 }
                 
-                let newList = ShoppingList (
-                    headline: titel,
-                    list : [                        ])
+                let newList = ShoppingList(context: self.context)
+                     newList.headline = titel
+                
+             //   let newList = ShoppingList (
+              //      headline: titel,
+                //    list : [                        ])
                 
                 self.data.insert(newList, at: 0)
+                do{
+                    try self.context.save()
+                }
+                catch{
+                    print ("data fehler")
+                }
                 
                 self.collectionView.reloadData()
                 
@@ -63,8 +74,18 @@ class VCOverViewNotes: UIViewController {
         collectionView.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateList), name: NSNotification.Name.init("de.shoppingList.update"), object: nil)
+        fetchLists()
         
-        
+    }
+    
+    func fetchLists(){
+        do {
+            self.data =
+            try self.context.fetch(ShoppingList.fetchRequest())
+        }
+        catch{
+            print ("dataFetch fehler")
+        }
     }
     
     @objc func updateList (notification:NSNotification) {
@@ -82,9 +103,7 @@ extension VCOverViewNotes : UICollectionViewDelegate,UICollectionViewDataSource 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
         
         cell.label.text = data[indexPath.row].headline
-        
-        print ("hello",data[indexPath.row].headline)
-        
+                
         return cell
     }
     
@@ -96,7 +115,6 @@ extension VCOverViewNotes : UICollectionViewDelegate,UICollectionViewDataSource 
         selectetList = data [indexPath.row]
         listIndex2 = indexPath.row
         performSegue(withIdentifier: "NaviVCDetailNotes", sender: nil)
-//        print(data[indexPath.row].list)
         }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
