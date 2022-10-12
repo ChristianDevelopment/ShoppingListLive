@@ -119,6 +119,10 @@ class VCDetailNotes: UIViewController {
     
     var detailList : ShoppingList!
     
+    var list1 : [Product]?
+    
+    var list2 : [Product]?
+    
     var listIndex : Int!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -207,6 +211,19 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
         
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 1 {
+    return "Erledigt"
+        }
+        else {
+            return ""
+        }
+    }
+    
     func tableView (_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let list = self.detailList.list?.allObjects as! [Product]
@@ -217,7 +234,8 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
         
         if product.amount > 0 {
             cell.amount.text =  product.amount.description
-        }else {
+        }
+        else {
             cell.amount.text =  ""
         }
         
@@ -229,6 +247,8 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
         return cell
         
     }
+    
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let list = self.detailList.list?.allObjects as! [Product]
