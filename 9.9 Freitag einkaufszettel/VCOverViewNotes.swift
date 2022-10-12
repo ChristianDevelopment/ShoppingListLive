@@ -66,12 +66,25 @@ class VCOverViewNotes: UIViewController {
     }
     
     
-    
+    // var screenSize: CGRect!
+    //  var screenWidth: CGFloat!
+    //  var screenHeight: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
-        collectionView.dataSource = self
+           collectionView.dataSource = self
+        
+        //  screenSize = UIScreen.main.bounds
+        //      screenWidth = screenSize.width
+        //     screenHeight = screenSize.height
+        
+        //let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        //      layout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 10, right: 0)
+        //      layout.itemSize = CGSize(width: screenWidth/3, height: screenWidth/3)
+        //       layout.minimumInteritemSpacing = 0
+        //      layout.minimumLineSpacing = 0
+        //      collectionView!.collectionViewLayout = layout
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateList), name: NSNotification.Name.init("de.shoppingList.update"), object: nil)
         fetchLists()

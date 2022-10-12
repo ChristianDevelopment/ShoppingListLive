@@ -129,12 +129,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqi-6x-16f">
-                                                    <rect key="frame" x="88" y="11.333333333333336" width="61" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwm-vi-zeQ">
                                                     <rect key="frame" x="341.33333333333331" y="4.3333333333333321" width="51.666666666666686" height="35"/>
                                                     <state key="normal" title="Button"/>
@@ -143,20 +137,35 @@
                                                         <action selector="buttonEdit:" destination="XQW-Hk-4sL" eventType="touchUpInside" id="VuZ-GP-lNo"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="omA-vp-cYt">
+                                                    <rect key="frame" x="85" y="11.333333333333336" width="37.333333333333343" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqi-6x-16f">
+                                                    <rect key="frame" x="127.33333333333331" y="11.333333333333336" width="61" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="eY5-lS-d1m" firstAttribute="leading" secondItem="hb6-JQ-i3q" secondAttribute="leadingMargin" id="0Xa-8H-DV2"/>
-                                                <constraint firstAttribute="trailing" secondItem="cwm-vi-zeQ" secondAttribute="trailing" id="Bd4-ie-fFu"/>
-                                                <constraint firstItem="cwm-vi-zeQ" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="VKu-Ia-ofp"/>
-                                                <constraint firstItem="eY5-lS-d1m" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="fJ8-Da-f7c"/>
-                                                <constraint firstItem="Sqi-6x-16f" firstAttribute="leading" secondItem="eY5-lS-d1m" secondAttribute="trailing" constant="8" symbolic="YES" id="i96-h7-Egy"/>
-                                                <constraint firstItem="Sqi-6x-16f" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="rT4-V9-SWg"/>
+                                                <constraint firstItem="eY5-lS-d1m" firstAttribute="leading" secondItem="hb6-JQ-i3q" secondAttribute="leadingMargin" id="4de-4d-BYw"/>
+                                                <constraint firstItem="Sqi-6x-16f" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="8kG-Er-7ND"/>
+                                                <constraint firstItem="Sqi-6x-16f" firstAttribute="leading" secondItem="omA-vp-cYt" secondAttribute="trailing" constant="5" id="GRp-Cf-DlD"/>
+                                                <constraint firstItem="omA-vp-cYt" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="Nrh-dz-NhD"/>
+                                                <constraint firstAttribute="trailing" secondItem="cwm-vi-zeQ" secondAttribute="trailing" id="SVn-jy-OJh"/>
+                                                <constraint firstItem="cwm-vi-zeQ" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="Vfb-1Z-e5E"/>
+                                                <constraint firstItem="omA-vp-cYt" firstAttribute="leading" secondItem="eY5-lS-d1m" secondAttribute="trailing" constant="5" id="b1g-wf-7Ww"/>
+                                                <constraint firstItem="eY5-lS-d1m" firstAttribute="centerY" secondItem="hb6-JQ-i3q" secondAttribute="centerY" id="fi0-8T-yaZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.54058218000000002" green="0.70715457199999998" blue="0.96804338690000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="amount" destination="eY5-lS-d1m" id="JdR-2e-AZd"/>
                                             <outlet property="productLabel" destination="Sqi-6x-16f" id="dUX-tw-DKY"/>
+                                            <outlet property="typeLabel" destination="omA-vp-cYt" id="Ile-rq-5ST"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
