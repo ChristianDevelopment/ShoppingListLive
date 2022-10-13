@@ -119,10 +119,6 @@ class VCDetailNotes: UIViewController {
     
     var detailList : ShoppingList!
     
-    var list1 : [Product]?
-    
-    var list2 : [Product]?
-    
     var listIndex : Int!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
@@ -133,7 +129,7 @@ class VCDetailNotes: UIViewController {
     @IBAction func addProduct(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(
-            title: "Text", message: "Bitte Trage deinen Text ein !", preferredStyle: .alert
+            title: "Hinzufügen", message: "Bitte Trage deinen Text ein !", preferredStyle: .alert
         )
         
         alert.addTextField { field in
@@ -146,7 +142,7 @@ class VCDetailNotes: UIViewController {
         }
         
         alert.addTextField { field in
-            field.placeholder = "Typ"
+            field.placeholder = "Maßeinheit"
             field.returnKeyType = .continue
         }
         
@@ -207,8 +203,25 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
     
     func tableView (_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return detailList.list?.count ?? 0
+        var counter = 0
+        if section == 0 {
+            for p in detailList.list!.allObjects as! [Product] {
+                if p.check == false {
+                    counter = counter + 1
+                }
+            }
+            return counter
+        }
         
+        
+        else {
+            for p in detailList.list!.allObjects as! [Product] {
+                if p.check == true {
+                    counter = counter + 1
+                }
+            }
+            return counter
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -217,7 +230,14 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 1 {
-    return "Erledigt"
+            
+            for p in detailList.list!.allObjects as! [Product] {
+                if p.check == true {
+                    return "Erledigt"
+                }
+            }
+            return ""
+            
         }
         else {
             return ""
@@ -228,57 +248,113 @@ extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
         
         let list = self.detailList.list?.allObjects as! [Product]
         
-        let product = list[indexPath.row]
+        var list1 : [Product] = []
+        var list2 : [Product] = []
         
-        let cell = tableView.dequeueReusableCell (withIdentifier: "ProductCell", for: indexPath) as! CellProduct
-        
-        if product.amount > 0 {
-            cell.amount.text =  product.amount.description
+        for p in list {
+            if p.check == true {
+                list2.append(p)
+            }
+            else
+            // p.check == false
+            {
+                list1.append(p)
+            }
         }
+        
+        
+        
+        if indexPath.section == 0 {
+            let product = list1[indexPath.row]
+            
+            
+            let cell = tableView.dequeueReusableCell (withIdentifier: "ProductCell", for: indexPath) as! CellProduct
+            
+            if product.amount > 0 {
+                cell.amount.text =  product.amount.description
+            }
+            else {
+                cell.amount.text =  ""
+            }
+            
+            cell.productLabel.text = product.name
+            
+            cell.typeLabel.text = product.type
+            
+            cell.cellDelegate = self
+            return cell
+        }
+        
         else {
-            cell.amount.text =  ""
+            let product = list2[indexPath.row]
+            
+            let cell = tableView.dequeueReusableCell (withIdentifier: "ProductCell", for: indexPath) as! CellProduct
+            
+            // AMOUNT
+            
+            if product.amount > 0 {
+                let amountString: NSMutableAttributedString = NSMutableAttributedString(string:product.amount.description)
+                      amountString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: amountString.length))
+                cell.amount.attributedText = amountString
+                
+            }
+            else {
+                cell.amount.text =  ""
+            }
+        
+            // NAME
+            
+            let nameString: NSMutableAttributedString = NSMutableAttributedString(string:product.name!)
+                  nameString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: nameString.length))
+            cell.productLabel.attributedText = nameString
+            
+            // TYPE
+            
+            cell.typeLabel.text = product.type
+            let typeString: NSMutableAttributedString = NSMutableAttributedString(string:product.type!)
+                  typeString.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 2, range: NSRange(location: 0, length: typeString.length))
+            cell.typeLabel.attributedText = typeString
+            
+            cell.cellDelegate = self
+            return cell
+            
         }
         
-        cell.productLabel.text = product.name
-        
-        cell.typeLabel.text = product.type
-        
-        cell.cellDelegate = self
-        return cell
-        
     }
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let list = self.detailList.list?.allObjects as! [Product]
-
-        list[indexPath.row].check = true
-        
-        NotificationCenter.default.post(name:NSNotification.Name.init("de.shoppingList.update"),object: (detailList,listIndex))
-        
-        tableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        
-        if editingStyle == .delete{
+        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             
             let list = self.detailList.list?.allObjects as! [Product]
             
-            let productToRemove = list[indexPath.row]
-            context.delete(productToRemove)
+            list[indexPath.row].check = !list[indexPath.row].check
             
-            do{
-                try self.context.save()
+            NotificationCenter.default.post(name:NSNotification.Name.init("de.shoppingList.update"),object: (detailList,listIndex))
+            
+            tableView.reloadData()
+        }
+        
+    
+    
+        func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+            
+            if editingStyle == .delete{
+                
+                let list = self.detailList.list?.allObjects as! [Product]
+                
+                let productToRemove = list[indexPath.row]
+                context.delete(productToRemove)
+                
+                do{
+                    try self.context.save()
+                }
+                
+                catch{
+                    print ("productToRemove fehler")
+                }
+                
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                
             }
-            
-            catch{
-                print ("productToRemove fehler")
-            }
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
         }
     }
-}
+

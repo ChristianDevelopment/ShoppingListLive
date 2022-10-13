@@ -21,11 +21,11 @@ class VCOverViewNotes: UIViewController {
     @IBAction func addList(_ sender: UIBarButtonItem) {
 
             let alert = UIAlertController(
-                title: "Titel", message: "Bitte Trage deinen Titel ein !", preferredStyle: .alert
+                title: "Hinzufügen", message: "Bitte Trage deinen Text ein !", preferredStyle: .alert
             )
             
             alert.addTextField { field in
-                field.placeholder = "Titel"
+                field.placeholder = "Text"
                 field.returnKeyType = .continue
             }
             
