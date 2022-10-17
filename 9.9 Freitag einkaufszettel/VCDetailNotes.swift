@@ -132,7 +132,7 @@ class VCDetailNotes: UIViewController {
         let color = CAGradientLayer()
         
         color.frame = view.bounds
-        color.colors = [UIColor.red.cgColor, UIColor.blue.cgColor,UIColor.systemBlue.cgColor]
+        color.colors = [UIColor.systemCyan.cgColor, UIColor.cyan.cgColor,UIColor.systemGreen.cgColor]
         
         
         color.startPoint = CGPoint( x: 0.0 , y: 0.5 ) ;

@@ -67,7 +67,7 @@ class VCOverViewNotes: UIViewController {
         let color = CAGradientLayer()
         
         color.frame = view.bounds
-        color.colors = [UIColor.systemBlue.cgColor, UIColor.blue.cgColor,UIColor.red.cgColor]
+        color.colors = [UIColor.systemGreen.cgColor, UIColor.cyan.cgColor,UIColor.systemCyan.cgColor]
 
         //[UIColor.init(red: 98, green: 130, blue: 178, alpha: 1).cgColor,
         //UIColor.init(red: 138, green: 180, blue: 247, alpha: 1).cgColor,
