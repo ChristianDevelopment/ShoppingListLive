@@ -29,7 +29,7 @@ class VCOverViewNotes: UIViewController {
         }
         
         alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel , handler: nil))
-        alert.addAction(UIAlertAction(title: "Hinzufügen", style: .default , handler: {_ in
+        alert.addAction(UIAlertAction(title: "Hinzufügen", style: .default , handler: { [self]_ in
             
             guard let textFields = alert.textFields else { return }
             
@@ -37,6 +37,7 @@ class VCOverViewNotes: UIViewController {
             
             let newList = ShoppingList(context: self.context)
             newList.headline = nameTextField.text
+            newList.backgroundColor = self.getRandomColor()
             
             self.allLists?.insert(newList, at: 0)
             
@@ -68,10 +69,6 @@ class VCOverViewNotes: UIViewController {
         
         color.frame = view.bounds
         color.colors = [UIColor.systemGreen.cgColor, UIColor.cyan.cgColor,UIColor.systemCyan.cgColor]
-
-        //[UIColor.init(red: 98, green: 130, blue: 178, alpha: 1).cgColor,
-        //UIColor.init(red: 138, green: 180, blue: 247, alpha: 1).cgColor,
-        //UIColor.init(red: 98, green: 130, blue: 178, alpha: 1).cgColor]
         
         color.startPoint = CGPoint( x: 0.0 , y: 0.5 ) ;
         color.endPoint = CGPoint ( x: 1.0 , y: 0.5 ) ;
@@ -112,9 +109,20 @@ extension VCOverViewNotes : UICollectionViewDelegate,UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
         cell.label.text = allLists?[indexPath.row].headline
+        
+        cell.contentView.backgroundColor = (allLists?[indexPath.row].backgroundColor as! UIColor)
+
         return cell
     }
     
+    func getRandomColor() -> UIColor {
+         //Generate between 0 to 1
+         let red:CGFloat = CGFloat(drand48())
+         let green:CGFloat = CGFloat(drand48())
+         let blue:CGFloat = CGFloat(drand48())
+
+        return UIColor(red:red, green: green, blue: blue, alpha: 0.7)
+    }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return allLists?.count ?? 0

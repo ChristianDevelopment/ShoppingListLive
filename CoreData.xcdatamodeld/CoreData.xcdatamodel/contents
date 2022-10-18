@@ -8,6 +8,7 @@
         <relationship name="shoppinglist" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShoppingList" inverseName="list" inverseEntity="ShoppingList"/>
     </entity>
     <entity name="ShoppingList" representedClassName="ShoppingList" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="Transformable" valueTransformerName="UIColor"/>
         <attribute name="headline" optional="YES" attributeType="String"/>
         <relationship name="list" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Product" inverseName="shoppinglist" inverseEntity="Product"/>
     </entity>

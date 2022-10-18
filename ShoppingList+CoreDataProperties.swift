@@ -2,7 +2,7 @@
 //  ShoppingList+CoreDataProperties.swift
 //  9.9 Freitag einkaufszettel
 //
-//  Created by Christian Eichfeld on 11.10.22.
+//  Created by Christian Eichfeld on 17.10.22.
 //
 //
 
@@ -17,6 +17,7 @@ extension ShoppingList {
     }
 
     @NSManaged public var headline: String?
+    @NSManaged public var backgroundColor: NSObject?
     @NSManaged public var list: NSSet?
 
 }

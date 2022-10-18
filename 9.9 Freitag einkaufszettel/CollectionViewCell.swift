@@ -12,6 +12,7 @@ class CollectionViewCell: UICollectionViewCell {
     
     var cornerRadius: CGFloat = 15.0
     
+    @IBOutlet weak var contentViewColor: UIView!
     @IBOutlet weak var label: UILabel!
     
     
@@ -33,5 +34,9 @@ class CollectionViewCell: UICollectionViewCell {
          layer.shadowOpacity = 0.50
          layer.shadowColor = UIColor.black.cgColor
          layer.shadowOffset = CGSize(width: 5, height: 5)
+        
+        layer.borderColor = UIColor.lightGray.cgColor
+        layer.borderWidth = 1.5
+    
      }
 }
