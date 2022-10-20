@@ -1,16 +1,25 @@
 //
-//  PageViewController.swift
+//  VC_OverViewNotes.swift
 //  9.9 Freitag einkaufszettel
 //
-//  Created by Christian Eichfeld on 19.10.22.
+//  Created by Christian Eichfeld on 20.10.22.
 //
 
 import UIKit
 
-class PageViewController: UIPageViewController {
+class VC_OverViewNotes: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let color = CAGradientLayer()
+        
+        color.frame = view.bounds
+        color.colors = [UIColor.systemGreen.cgColor, UIColor.cyan.cgColor,UIColor.systemCyan.cgColor]
+        
+        color.startPoint = CGPoint( x: 0.0 , y: 0.5 ) ;
+        color.endPoint = CGPoint ( x: 1.0 , y: 0.5 ) ;
+        view.layer.insertSublayer ( color, at: 0 )
 
         // Do any additional setup after loading the view.
     }

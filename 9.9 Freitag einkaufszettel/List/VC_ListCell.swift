@@ -1,5 +1,5 @@
 //
-//  CollectionViewCell.swift
+//  VC_ListCell.swift
 //  9.9 Freitag einkaufszettel
 //
 //  Created by Christian Eichfeld on 09.09.22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class VC_ListCell: UICollectionViewCell {
     
     
     var cornerRadius: CGFloat = 15.0

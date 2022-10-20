@@ -1,12 +1,12 @@
 //
-//  VCOverViewNotes.swift
+//  VC_OverViewList.swift
 //  9.9 Freitag einkaufszettel
 //
 //  Created by Christian Eichfeld on 09.09.22.
 //
 import UIKit
 
-class VCOverViewNotes: UIViewController {
+class VC_OverViewList: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -104,10 +104,10 @@ class VCOverViewNotes: UIViewController {
 }
 
 
-extension VCOverViewNotes : UICollectionViewDelegate,UICollectionViewDataSource {
+extension VC_OverViewList : UICollectionViewDelegate,UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ViewCell", for: indexPath) as! VC_ListCell
         cell.label.text = allLists?[indexPath.row].headline
         
         cell.contentView.backgroundColor = (allLists?[indexPath.row].backgroundColor as! UIColor)
@@ -132,12 +132,12 @@ extension VCOverViewNotes : UICollectionViewDelegate,UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedList = allLists? [indexPath.row]
         indexOfSelectedList = indexPath.row
-        performSegue(withIdentifier: "NaviVCDetailNotes", sender: nil)
+        performSegue(withIdentifier: "NaviVC_DetailList", sender: nil)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? VCDetailNotes {
+        if let destinationVC = segue.destination as? VC_DetailList {
             destinationVC.shoppingList = selectedList
             destinationVC.indexOfShoppingList = indexOfSelectedList
         }

@@ -1,5 +1,5 @@
 //
-//  VCDetailNotes.swift
+//  VC_DetailList.swift
 //  9.9 Freitag einkaufszettel
 //
 //  Created by Christian Eichfeld on 12.09.22.
@@ -24,7 +24,7 @@ class CellProduct : UITableViewCell {
 }
 
 
-class VCDetailNotes: UIViewController {
+class VC_DetailList: UIViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -168,7 +168,7 @@ class VCDetailNotes: UIViewController {
 }
 
 
-extension VCDetailNotes : EditProductDelegate {
+extension VC_DetailList : EditProductDelegate {
     
     func editProduct(cell: CellProduct) {
         
@@ -239,7 +239,7 @@ extension VCDetailNotes : EditProductDelegate {
     }
 }
 
-extension VCDetailNotes : UITableViewDataSource,UITableViewDelegate {
+extension VC_DetailList : UITableViewDataSource,UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
