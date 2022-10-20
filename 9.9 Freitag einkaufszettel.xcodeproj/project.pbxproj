@@ -18,6 +18,13 @@
 		2B78161D28FD717900BF3C28 /* ShoppingList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B78161928FD717900BF3C28 /* ShoppingList+CoreDataProperties.swift */; };
 		2B78161E28FD717900BF3C28 /* Product+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B78161A28FD717900BF3C28 /* Product+CoreDataClass.swift */; };
 		2B78161F28FD717900BF3C28 /* Product+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B78161B28FD717900BF3C28 /* Product+CoreDataProperties.swift */; };
+		2B781643290025FF00BF3C28 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B781642290025FF00BF3C28 /* PageViewController.swift */; };
+		2B78164529012F5A00BF3C28 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2B78164429012F5A00BF3C28 /* GoogleService-Info.plist */; };
+		2B781648290131A200BF3C28 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 2B781647290131A200BF3C28 /* FirebaseAppCheck */; };
+		2B78164A290131A200BF3C28 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2B781649290131A200BF3C28 /* FirebaseAuth */; };
+		2B78164C290131A200BF3C28 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 2B78164B290131A200BF3C28 /* FirebaseFirestoreSwift */; };
+		2B78164E290131A200BF3C28 /* FirebaseInAppMessagingSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 2B78164D290131A200BF3C28 /* FirebaseInAppMessagingSwift-Beta */; };
+		2B781650290131A200BF3C28 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2B78164F290131A200BF3C28 /* FirebaseStorage */; };
 		2BCDBFC228F58CF900F01344 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2BCDBFC028F58CF900F01344 /* CoreData.xcdatamodeld */; };
 		2BF846C728CF42AA00CE44A2 /* VCDetailNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF846C628CF42AA00CE44A2 /* VCDetailNotes.swift */; };
 /* End PBXBuildFile section */
@@ -36,6 +43,8 @@
 		2B78161928FD717900BF3C28 /* ShoppingList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShoppingList+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		2B78161A28FD717900BF3C28 /* Product+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		2B78161B28FD717900BF3C28 /* Product+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Product+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		2B781642290025FF00BF3C28 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		2B78164429012F5A00BF3C28 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2BCDBFC128F58CF900F01344 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		2BF846C628CF42AA00CE44A2 /* VCDetailNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCDetailNotes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -45,6 +54,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B781648290131A200BF3C28 /* FirebaseAppCheck in Frameworks */,
+				2B78164A290131A200BF3C28 /* FirebaseAuth in Frameworks */,
+				2B78164E290131A200BF3C28 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				2B781650290131A200BF3C28 /* FirebaseStorage in Frameworks */,
+				2B78164C290131A200BF3C28 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,9 +92,11 @@
 				2BF846C628CF42AA00CE44A2 /* VCDetailNotes.swift */,
 				2B73FB9828CB42E10044E54F /* Main.storyboard */,
 				2B73FBA628CB65540044E54F /* CollectionViewCell.swift */,
+				2B781642290025FF00BF3C28 /* PageViewController.swift */,
 				2B73FB9B28CB42E30044E54F /* Assets.xcassets */,
 				2B73FB9D28CB42E30044E54F /* LaunchScreen.storyboard */,
 				2B73FBA028CB42E30044E54F /* Info.plist */,
+				2B78164429012F5A00BF3C28 /* GoogleService-Info.plist */,
 			);
 			path = "9.9 Freitag einkaufszettel";
 			sourceTree = "<group>";
@@ -112,6 +128,13 @@
 			dependencies = (
 			);
 			name = "9.9 Freitag einkaufszettel";
+			packageProductDependencies = (
+				2B781647290131A200BF3C28 /* FirebaseAppCheck */,
+				2B781649290131A200BF3C28 /* FirebaseAuth */,
+				2B78164B290131A200BF3C28 /* FirebaseFirestoreSwift */,
+				2B78164D290131A200BF3C28 /* FirebaseInAppMessagingSwift-Beta */,
+				2B78164F290131A200BF3C28 /* FirebaseStorage */,
+			);
 			productName = "9.9 Freitag einkaufszettel";
 			productReference = 2B73FB8F28CB42E10044E54F /* 9.9 Freitag einkaufszettel.app */;
 			productType = "com.apple.product-type.application";
@@ -140,6 +163,9 @@
 				Base,
 			);
 			mainGroup = 2B73FB8628CB42E10044E54F;
+			packageReferences = (
+				2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 2B73FB9028CB42E10044E54F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B73FB9F28CB42E30044E54F /* LaunchScreen.storyboard in Resources */,
+				2B78164529012F5A00BF3C28 /* GoogleService-Info.plist in Resources */,
 				2B73FB9C28CB42E30044E54F /* Assets.xcassets in Resources */,
 				2B73FB9A28CB42E10044E54F /* Main.storyboard in Resources */,
 			);
@@ -169,6 +196,7 @@
 			files = (
 				2B78161F28FD717900BF3C28 /* Product+CoreDataProperties.swift in Sources */,
 				2BF846C728CF42AA00CE44A2 /* VCDetailNotes.swift in Sources */,
+				2B781643290025FF00BF3C28 /* PageViewController.swift in Sources */,
 				2B73FB9728CB42E10044E54F /* VCOverViewNotes.swift in Sources */,
 				2B73FB9328CB42E10044E54F /* AppDelegate.swift in Sources */,
 				2B73FBA728CB65540044E54F /* CollectionViewCell.swift in Sources */,
@@ -392,6 +420,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B781647290131A200BF3C28 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
+		};
+		2B781649290131A200BF3C28 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		2B78164B290131A200BF3C28 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		2B78164D290131A200BF3C28 /* FirebaseInAppMessagingSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseInAppMessagingSwift-Beta";
+		};
+		2B78164F290131A200BF3C28 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B781646290131A200BF3C28 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		2BCDBFC028F58CF900F01344 /* CoreData.xcdatamodeld */ = {
