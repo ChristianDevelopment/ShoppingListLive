@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B00F75A290298460011BBAD /* VC_LogIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00F759290298460011BBAD /* VC_LogIn.swift */; };
+		2B00F75C290298760011BBAD /* VC_Regis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B00F75B290298760011BBAD /* VC_Regis.swift */; };
 		2B67B1F429017A6900D19BB3 /* VC_OverViewNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67B1F329017A6900D19BB3 /* VC_OverViewNotes.swift */; };
 		2B67B1F629017AC400D19BB3 /* VC_NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67B1F529017AC400D19BB3 /* VC_NotesCell.swift */; };
 		2B67B1F829017B1300D19BB3 /* VC_DetailNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B67B1F729017B1300D19BB3 /* VC_DetailNotes.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B00F759290298460011BBAD /* VC_LogIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_LogIn.swift; sourceTree = "<group>"; };
+		2B00F75B290298760011BBAD /* VC_Regis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_Regis.swift; sourceTree = "<group>"; };
 		2B67B1F329017A6900D19BB3 /* VC_OverViewNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_OverViewNotes.swift; sourceTree = "<group>"; };
 		2B67B1F529017AC400D19BB3 /* VC_NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_NotesCell.swift; sourceTree = "<group>"; };
 		2B67B1F729017B1300D19BB3 /* VC_DetailNotes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VC_DetailNotes.swift; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B00F758290298170011BBAD /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				2B00F759290298460011BBAD /* VC_LogIn.swift */,
+				2B00F75B290298760011BBAD /* VC_Regis.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
 		2B67B1EE2901798900D19BB3 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 		2B73FB9128CB42E10044E54F /* 9.9 Freitag einkaufszettel */ = {
 			isa = PBXGroup;
 			children = (
+				2B00F758290298170011BBAD /* Log */,
 				2B67B1F0290179DF00D19BB3 /* Notes */,
 				2B67B1EE2901798900D19BB3 /* List */,
 				2BCDBFC328F5909900F01344 /* Model */,
@@ -218,6 +232,7 @@
 			files = (
 				2B78161F28FD717900BF3C28 /* Product+CoreDataProperties.swift in Sources */,
 				2BF846C728CF42AA00CE44A2 /* VC_DetailList.swift in Sources */,
+				2B00F75A290298460011BBAD /* VC_LogIn.swift in Sources */,
 				2B67B1F429017A6900D19BB3 /* VC_OverViewNotes.swift in Sources */,
 				2B67B1F829017B1300D19BB3 /* VC_DetailNotes.swift in Sources */,
 				2B67B1F629017AC400D19BB3 /* VC_NotesCell.swift in Sources */,
@@ -227,6 +242,7 @@
 				2B73FB9528CB42E10044E54F /* SceneDelegate.swift in Sources */,
 				2B78161E28FD717900BF3C28 /* Product+CoreDataClass.swift in Sources */,
 				2B78161C28FD717900BF3C28 /* ShoppingList+CoreDataClass.swift in Sources */,
+				2B00F75C290298760011BBAD /* VC_Regis.swift in Sources */,
 				2BCDBFC228F58CF900F01344 /* CoreData.xcdatamodeld in Sources */,
 				2B78161D28FD717900BF3C28 /* ShoppingList+CoreDataProperties.swift in Sources */,
 			);
