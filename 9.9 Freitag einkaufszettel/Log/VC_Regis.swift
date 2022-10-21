@@ -21,7 +21,7 @@ class VC_Regis: UIViewController {
     
     @IBAction func ButtonRegis(_ sender: UIButton) {
         
-    
+    //ggjgj
         if EmailTextField.text == EMailConfirm.text {
             
             if PasswordField.text == PasswordConfirm.text{
